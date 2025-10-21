@@ -1,25 +1,46 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  console.log(
+    'Congratulations, your extension "selected-variable-into-console-log" is now active!'
+  );
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "selected-variable-into-console-log" is now active!');
+  const disposable = vscode.commands.registerCommand(
+    "selected-variable-into-console-log.insertConsoleLog",
+    () => {
+      const editor = vscode.window.activeTextEditor;
+      if (!editor) {
+        vscode.window.showErrorMessage("No active editor!");
+        return;
+      }
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('selected-variable-into-console-log.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Selected Variable into Console Log!');
-	});
+      const selection = editor.selection;
+      const text = editor.document.getText(selection);
 
-	context.subscriptions.push(disposable);
+      let logStatement = `console.log(object);`;
+
+      if (text) {
+        logStatement = `console.log('${text}', ${text});`;
+      }
+
+      // if (!text) {
+      //   vscode.window.showWarningMessage("No text selected!");
+      //   return;
+      // }
+
+      editor.edit((editBuilder) => {
+        const line = selection.end.line;
+        editBuilder.insert(
+          new vscode.Position(line + 1, 0),
+          `\n${logStatement}\n`
+        );
+      });
+
+      vscode.window.showInformationMessage(`Inserted console.log(${text})`);
+    }
+  );
+
+  context.subscriptions.push(disposable);
 }
 
 // This method is called when your extension is deactivated
