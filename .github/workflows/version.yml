@@ -1,4 +1,4 @@
-name: version
+name: Update Version
 
 on:
     push:
@@ -10,14 +10,14 @@ jobs:
         runs-on: ubuntu-latest
 
         permissions:
-            contents: write # commit/tag için gerekli
+            contents: write
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  fetch-depth: 0 # tag'ların da gelmesi için ÖNEMLİ
+                  fetch-depth: 0
 
             - name: Setup Git identity
               run: |
@@ -35,8 +35,5 @@ jobs:
             - name: Bump version, commit and push tag
               run: |
                   VERSION=$(npm version patch -m "chore: bump version to %s [skip ci]")
-                  echo "📦 Version bumped to $VERSION"
 
-                  # push commit ve tag
-                  git push origin HEAD:main
-                  git push origin --tags
+                  git push --follow-tags

@@ -1,8 +1,8 @@
-name: Publish VS Code Extension
+name: Publish Extension
 
 on:
     workflow_run:
-        workflows: ["version"]
+        workflows: ["Update Version"]
         types:
             - completed
 
