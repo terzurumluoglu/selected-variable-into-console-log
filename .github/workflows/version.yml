@@ -10,13 +10,14 @@ jobs:
         runs-on: ubuntu-latest
 
         permissions:
-            contents: write # commit/tag için gerekli izin
+            contents: write # commit/tag için gerekli
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
+                  fetch-depth: 0 # tag'ların da gelmesi için ÖNEMLİ
 
             - name: Setup Git identity
               run: |
@@ -31,7 +32,11 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
-            - name: Bump version and push tag
+            - name: Bump version, commit and push tag
               run: |
-                  npm version patch -m "chore: bump version to %s [skip ci]"
-                  git push --follow-tags
+                  VERSION=$(npm version patch -m "chore: bump version to %s [skip ci]")
+                  echo "📦 Version bumped to $VERSION"
+
+                  # push commit ve tag
+                  git push origin HEAD:main
+                  git push origin --tags
