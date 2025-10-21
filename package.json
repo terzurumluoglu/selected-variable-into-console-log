@@ -2,7 +2,7 @@
   "name": "selected-variable-into-console-log",
   "displayName": "Selected Variable into Console Log",
   "description": "You can pass variable into console by using this extension",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.105.0"
   },
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AhadCove/JS-Quick-Console"
+    "url": "https://github.com/terzurumluoglu/selected-variable-into-console-log"
   },
   "icon": "images/icon.png",
   "categories": [
@@ -22,7 +22,8 @@
     "Other"
   ],
   "keywords": [
-    "Python",
+    "JavaScript",
+    "TypeScript",
     "Print",
     "Log"
   ],
