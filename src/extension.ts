@@ -17,10 +17,12 @@ export function activate(context: vscode.ExtensionContext) {
       const selection = editor.selection;
       const text = editor.document.getText(selection);
 
-      let logStatement = `console.log(object);`;
+      let logStatement = `
+      console.log(object);`;
 
       if (text) {
-        logStatement = `console.log('${text}', ${text});`;
+        logStatement = `
+        console.log('${text}', ${text});`;
       }
 
       // if (!text) {
