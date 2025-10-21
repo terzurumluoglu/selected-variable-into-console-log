@@ -1,9 +1,10 @@
 name: Publish VS Code Extension
 
 on:
-    push:
-        tags:
-            - "v*" # v1.0.0 gibi bir tag push edildiğinde çalışır
+    workflow_run:
+        workflows: ["version"]
+        types:
+            - completed
 
 jobs:
     publish:
