@@ -14,28 +14,23 @@ export function activate(context: vscode.ExtensionContext) {
         return;
       }
 
+      const document = editor.document;
       const selection = editor.selection;
-      const text = editor.document.getText(selection);
+      const text = document.getText(selection);
 
-      let logStatement = `
-      console.log(object);`;
+      const line = document.lineAt(selection.end.line);
+      const indentation = line.text.match(/^\s*/)?.[0] ?? "";
+
+      let logStatement = "console.log(object);";
 
       if (text) {
-        logStatement = `
-        console.log('${text}', ${text});`;
+        logStatement = `console.log('${text}', ${text});`;
       }
 
-      // if (!text) {
-      //   vscode.window.showWarningMessage("No text selected!");
-      //   return;
-      // }
+      logStatement = indentation + logStatement;
 
       editor.edit((editBuilder) => {
-        const line = selection.end.line;
-        editBuilder.insert(
-          new vscode.Position(line + 1, 0),
-          `\n${logStatement}\n`
-        );
+        editBuilder.insert(line.range.end, "\n" + logStatement);
       });
 
       vscode.window.showInformationMessage(`Inserted console.log(${text})`);
