@@ -10,6 +10,7 @@
   "author": {
     "name": "terzurumluoglu"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/AhadCove/JS-Quick-Console"
