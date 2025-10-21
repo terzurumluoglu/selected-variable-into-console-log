@@ -40,8 +40,7 @@
       {
         "command": "selected-variable-into-console-log.insertConsoleLog",
         "key": "ctrl+shift+l",
-        "mac": "cmd+shift+l",
-        "when": "editorTextFocus && editorHasSelection"
+        "mac": "cmd+shift+l"
       }
     ]
   },
