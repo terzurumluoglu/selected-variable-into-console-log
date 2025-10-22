@@ -32,17 +32,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # 🧭 1. Semantic Release — versiyon bump + changelog + tag
       - name: Semantic Release
-        id: semantic_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
 
-      - name: Push release commit + tags
-        run: git push origin main --follow-tags
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      # 🚀 2. VS Code Marketplace'e publish et
       - name: Publish to VS Code Marketplace
         run: npx vsce publish -p $MARKET_TOKEN
         env:
