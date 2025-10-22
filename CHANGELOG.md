@@ -1,3 +1,10 @@
+## [0.0.89](https://github.com/terzurumluoglu/selected-variable-into-console-log/compare/v0.0.88...v0.0.89) (2025-10-22)
+
+
+### Bug Fixes
+
+* yml ([6b98864](https://github.com/terzurumluoglu/selected-variable-into-console-log/commit/6b98864eadbb44845c074c31cc3d0d068047d436))
+
 ## [0.0.88](https://github.com/terzurumluoglu/selected-variable-into-console-log/compare/v0.0.87...v0.0.88) (2025-10-22)
 
 
