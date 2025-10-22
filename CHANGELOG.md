@@ -1,3 +1,10 @@
+## [0.0.91](https://github.com/terzurumluoglu/selected-variable-into-console-log/compare/v0.0.90...v0.0.91) (2025-10-22)
+
+
+### Bug Fixes
+
+* deneme ([98c0855](https://github.com/terzurumluoglu/selected-variable-into-console-log/commit/98c0855a691e8d2824eec80b4f116152e93a0dc5))
+
 ## [0.0.90](https://github.com/terzurumluoglu/selected-variable-into-console-log/compare/v0.0.89...v0.0.90) (2025-10-22)
 
 
