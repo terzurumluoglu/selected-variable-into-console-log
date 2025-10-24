@@ -40,7 +40,7 @@
     "keybindings": [
       {
         "command": "selected-variable-into-console-log.insertConsoleLog",
-        "key": "ctrl+shift+l",
+        "key": "ctrl+alt+l",
         "mac": "cmd+shift+l"
       }
     ]
