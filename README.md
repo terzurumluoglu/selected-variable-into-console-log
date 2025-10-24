@@ -10,7 +10,7 @@ Visit Market Place</a>
 Keyboard Shortcut:
 
 - Mac: `Cmd + Shift + L`
-- Windows: `Ctrl + Shift + L`
+- Windows: `Ctrl + Alt + L`
 
 ```js
 console.log("variable", variable); // selection
