@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/terzurumluoglu/selected-variable-into-console-log/compare/v0.1.1...v0.2.0) (2025-11-04)
+
+
+### Features
+
+* removed console inform, fixed: sth ([e3127bf](https://github.com/terzurumluoglu/selected-variable-into-console-log/commit/e3127bf538850339a2176392e3ff6aff3ffdca88))
+
 ## [0.1.1](https://github.com/terzurumluoglu/selected-variable-into-console-log/compare/v0.1.0...v0.1.1) (2025-10-24)
 
 
