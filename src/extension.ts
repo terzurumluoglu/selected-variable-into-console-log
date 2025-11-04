@@ -32,8 +32,6 @@ export function activate(context: vscode.ExtensionContext) {
       editor.edit((editBuilder) => {
         editBuilder.insert(line.range.end, "\n" + logStatement);
       });
-
-      vscode.window.showInformationMessage(`Inserted console.log(${text})`);
     }
   );
 
