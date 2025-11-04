@@ -16,15 +16,15 @@ export function activate(context: vscode.ExtensionContext) {
 
       const document = editor.document;
       const selection = editor.selection;
-      const text = document.getText(selection);
+      const selectedVariable = document.getText(selection);
 
       const line = document.lineAt(selection.end.line);
-      const indentation = line.text.match(/^\s*/)?.[0] ?? "";
+      const indentation = line.text.match(/^\s*/)?.[0] ?? '';
 
       let logStatement = "console.log(object);";
 
-      if (text) {
-        logStatement = `console.log('${text}', ${text});`;
+      if (selectedVariable) {
+        logStatement = `console.log('${selectedVariable}', ${selectedVariable});`;
       }
 
       logStatement = indentation + logStatement;
