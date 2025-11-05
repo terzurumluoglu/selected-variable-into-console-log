@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
       const line = document.lineAt(selection.end.line);
       const indentation = line.text.match(/^\s*/)?.[0] ?? '';
 
-      let logStatement = "console.log(object);";
+      let logStatement = "console.log('HERE');";
 
       if (selectedVariable) {
         logStatement = `console.log('${selectedVariable}', ${selectedVariable});`;
