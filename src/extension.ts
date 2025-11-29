@@ -7,7 +7,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   const disposable = vscode.commands.registerCommand(
     "selected-variable-into-console-log.insertConsoleLog",
-    () => {
+    async () => {
       const editor = vscode.window.activeTextEditor;
       if (!editor) {
         vscode.window.showErrorMessage("No active editor!");
@@ -16,19 +16,28 @@ export function activate(context: vscode.ExtensionContext) {
 
       const document = editor.document;
       const selection = editor.selection;
-      const selectedVariable = document.getText(selection);
+      const selectedVariable = document.getText(selection).trim();
 
-      const line = document.lineAt(selection.end.line);
-      const indentation = line.text.match(/^\s*/)?.[0] ?? '';
+      // 1️⃣ Clipboard'ı oku
+      const clipboardText = (await vscode.env.clipboard.readText()).trim();
 
-      let logStatement = "console.log('HERE');";
+      // 2️⃣ Hangi değeri loglayacağız?
+      let variableToLog = "HERE";
 
       if (selectedVariable) {
-        logStatement = `console.log('${selectedVariable}', ${selectedVariable});`;
+        variableToLog = selectedVariable;
+      } else if (clipboardText) {
+        variableToLog = clipboardText;
       }
 
-      logStatement = indentation + logStatement;
+      // 3️⃣ Mevcut satır için indentation hesapla
+      const line = document.lineAt(selection.end.line);
+      const indentation = line.text.match(/^\s*/)?.[0] ?? "";
 
+      // 4️⃣ Log satırını oluştur
+      const logStatement = `${indentation}console.log('${variableToLog}', ${variableToLog});`;
+
+      // 5️⃣ Edit işlemi
       editor.edit((editBuilder) => {
         editBuilder.insert(line.range.end, "\n" + logStatement);
       });
