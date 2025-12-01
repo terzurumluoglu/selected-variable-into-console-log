@@ -18,10 +18,8 @@ export function activate(context: vscode.ExtensionContext) {
       const selection = editor.selection;
       const selectedVariable = document.getText(selection).trim();
 
-      // 1️⃣ Clipboard'ı oku
       const clipboardText = (await vscode.env.clipboard.readText()).trim();
 
-      // 2️⃣ Hangi değeri loglayacağız?
       let variableToLog = "HERE";
 
       if (selectedVariable) {
@@ -30,14 +28,11 @@ export function activate(context: vscode.ExtensionContext) {
         variableToLog = clipboardText;
       }
 
-      // 3️⃣ Mevcut satır için indentation hesapla
       const line = document.lineAt(selection.end.line);
       const indentation = line.text.match(/^\s*/)?.[0] ?? "";
 
-      // 4️⃣ Log satırını oluştur
       const logStatement = `${indentation}console.log('${variableToLog}', ${variableToLog});`;
 
-      // 5️⃣ Edit işlemi
       editor.edit((editBuilder) => {
         editBuilder.insert(line.range.end, "\n" + logStatement);
       });
