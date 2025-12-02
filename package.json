@@ -2,7 +2,7 @@
   "name": "selected-variable-into-console-log",
   "displayName": "Selected Variable into Console Log",
   "description": "You can pass variable into console by using this extension",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "engines": {
     "vscode": "^1.105.0"
   },

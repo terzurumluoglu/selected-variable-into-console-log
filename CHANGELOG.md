@@ -1,3 +1,10 @@
+## [0.3.1](https://github.com/terzurumluoglu/selected-variable-into-console-log/compare/v0.3.0...v0.3.1) (2025-12-02)
+
+
+### Bug Fixes
+
+* selection and copied variable ([ef127ca](https://github.com/terzurumluoglu/selected-variable-into-console-log/commit/ef127ca3fdf6550b47a23181bf30a08c91410921))
+
 # [0.3.0](https://github.com/terzurumluoglu/selected-variable-into-console-log/compare/v0.2.1...v0.3.0) (2025-12-01)
 
 
