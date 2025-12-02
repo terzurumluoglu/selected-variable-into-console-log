@@ -14,7 +14,8 @@ Keyboard Shortcut:
 
 ```js
 console.log("variable", variable); // selection
-console.log(object); // no selection
+console.log("this.data", this.data); // copied
+console.log("HERE"); // no selection and no copied
 ```
 
 ## License

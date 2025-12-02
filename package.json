@@ -33,13 +33,13 @@
   "contributes": {
     "commands": [
       {
-        "command": "selected-variable-into-console-log.insertConsoleLog",
+        "command": "selected-variable-into-console-log",
         "title": "Insert Console Log"
       }
     ],
     "keybindings": [
       {
-        "command": "selected-variable-into-console-log.insertConsoleLog",
+        "command": "selected-variable-into-console-log",
         "key": "ctrl+alt+l",
         "mac": "cmd+shift+l"
       }
